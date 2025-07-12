@@ -14,7 +14,26 @@ function validaForm(form, notifica) {
 }
 
 function submitForm() {
+  _v.form.addEventListener('submit', (e) => {
+    e.stopPropagation();
+    e.preventDefault();
+    checkValidation();
+  }, true);
+}
 
+
+function checkValidation() {
+  try {
+    // controllo campi obbligatori
+    requiredFields();
+
+    // controllo email
+    emailValidation();
+
+    // controllo password
+    passwordValidation();
+  } catch (e) {
+  }
 }
 
 
