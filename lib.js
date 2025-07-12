@@ -91,8 +91,6 @@ function passwordValidation() {
 }
 
 
-
-
 /*
 8 caratteri -> valida ma non sicura
 8 caratteri - 1 carattere speciale -> mediamente sicura
