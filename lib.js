@@ -1,7 +1,8 @@
 const _v = {
   hasError: false,
   isValidPassword: false,
-  emailPattern: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+  // Modifica la regex per accettare solo email nel formato aa@aa.com
+  emailPattern: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
 }
 
 function validaForm(form, notifica) {
@@ -40,6 +41,52 @@ function checkValidation() {
     _v.notificationItem.textContent = e.message;
   }
 }
+
+
+function requiredFields() {
+  let error;
+  _v.hasError = false;
+
+  _v.formItems.forEach((item) => {
+    error = false;
+    if (item.type !== 'checkbox' && item.required && !item.value) {
+      error = true;
+    }
+    if (item.type === 'checkbox' && item.required && !item.checked) {
+      error = true;
+    }
+    if (error) {
+      item.classList.add('error');
+      _v.hasError = error;
+    } else {
+      item.classList.remove('error');
+    }
+  });
+  if (_v.hasError) {
+    throw new Error('Campi obbligatori non compilati');
+  }
+}
+
+function emailValidation() {
+  // Accetta solo email nel formato aa@aa.com
+  if (!_v.emailPattern.test(_v.form.email.value)) {
+    throw new Error('Inserisci un indirizzo email valido');
+  }
+}
+
+// controllo password
+function passwordValidation() {
+  const pwd = _v.form.password.value;
+  re_pwd = v.form.re_password.value;
+  if (!_v.isValidPassword) {
+    throw new Error('Inserisci una password valida');
+  }
+  if (pwd !== re_pwd) {
+    throw new Error('Le password non corrispondono');
+  }
+}
+
+
 
 
 /*
