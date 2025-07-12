@@ -1,8 +1,7 @@
 const _v = {
   hasError: false,
   isValidPassword: false,
-  // Modifica la regex per accettare solo email nel formato aa@aa.com
-  emailPattern: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
+  emailPattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 }
 
 function validaForm(form, notifica) {
@@ -68,7 +67,6 @@ function requiredFields() {
 }
 
 function emailValidation() {
-  // Accetta solo email nel formato aa@aa.com
   if (!_v.emailPattern.test(_v.form.email.value)) {
     throw new Error('Inserisci un indirizzo email valido');
   }
@@ -76,8 +74,8 @@ function emailValidation() {
 
 // controllo password
 function passwordValidation() {
-  const pwd = _v.form.password.value;
-  re_pwd = v.form.re_password.value;
+  const pwd = _v.form.password.value,
+    re_pwd = _v.form.re_password.value;
   if (!_v.isValidPassword) {
     throw new Error('Inserisci una password valida');
   }
