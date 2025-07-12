@@ -10,6 +10,30 @@
 
 <body>
 
+  <div id="main-wrapper">
+
+    <h1> Registrazione</h1>
+
+    <form action="#" id="form-registrazione">
+      <div id="wrapper-input">
+        <input type="text" name="nome" placeholder="Nome" required />
+        <input type="text" name="cognome" placeholder="Cognome" required />
+        <input type="email" name="email" placeholder="Email" required />
+        <div id="password" name="password">
+          <input type="password" name="password" placeholder="Password minimo 8 caratteri" required />
+          <span id="l_1"></span>
+          <span id="l_2"></span>
+          <span id="l_3"></span>
+        </div>
+        <input type="password" name="re_password" placeholder="Conferma Password" required />
+        <input type="checkbox" name="terms" required />
+        <label for="terms" class="fs-small">Accetto i termini e condizioni</label>
+      </div>
+        <input type="submit" value="registrati" />
+    </form>
+
+    <div id="notifica-registrazione"></div>
+  </div>
 
   <script type="module">
     import validaForm from './lib.js';
