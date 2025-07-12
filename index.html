@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="it">
+  <meta charset="UTF-8" />
+  <title>Maestro JavaScript. Validazione Form</title>
+  <link rel="shortcut icon" href="#">
+  <link rel="stylesheet" href="stile.css">
+</head>
+
+<body>
+
+
+  <script type="module">
+    import validaForm from './lib.js';
+    document.addEventListener("DOMContentLoaded", function () {
+      validaForm('#form-registrazione', '#notifica-registrazione');
+    });
+  </script>
+</body>
+
+</html>
