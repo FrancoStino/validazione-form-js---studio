@@ -32,7 +32,12 @@ function checkValidation() {
 
     // controllo password
     passwordValidation();
+
+    // controlli superati
+    _v.notificationItem.textContent = 'Registrazione avvenuta con successo';
+
   } catch (e) {
+    _v.notificationItem.textContent = e.message;
   }
 }
 
