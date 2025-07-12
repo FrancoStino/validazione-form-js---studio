@@ -45,6 +45,16 @@ function checkValidation() {
 
 function resetForm() {
   _v.form.reset();
+  resetPasswordStrength();
+  _v.formItems.forEach(item => {
+    item.classList.remove(error);
+  });
+}
+
+function resetPasswordStrength() {
+  _v.passwordStrength.forEach((span) => {
+    span.classList.remove('active');
+  })
 }
 
 
@@ -106,9 +116,10 @@ function checkPasswordStrength() {
 
       pwd = e.target.value;
 
-    _v.passwordStrength.forEach((span) => {
-      span.classList.remove('active');
-    });
+    // _v.passwordStrength.forEach((span) => {
+    //   span.classList.remove('active');
+    // });
+    resetPasswordStrength();
 
     if (pwd.length >= 8) {
       _v.passwordStrength[0].classList.add('active');
