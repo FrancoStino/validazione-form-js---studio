@@ -36,9 +36,15 @@ function checkValidation() {
     // controlli superati
     _v.notificationItem.textContent = 'Registrazione avvenuta con successo';
 
+    // reset form
+    resetForm();
   } catch (e) {
     _v.notificationItem.textContent = e.message;
   }
+}
+
+function resetForm() {
+  _v.form.reset();
 }
 
 
