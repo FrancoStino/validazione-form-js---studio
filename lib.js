@@ -44,7 +44,7 @@ function checkValidation() {
 
 function requiredFields() {
   let error;
-  _v.hasError = false;
+  _v.hasError = error;
 
   _v.formItems.forEach((item) => {
     error = false;
